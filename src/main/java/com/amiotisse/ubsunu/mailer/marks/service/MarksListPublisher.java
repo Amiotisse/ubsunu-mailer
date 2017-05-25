@@ -16,7 +16,7 @@ import org.springframework.mail.SimpleMailMessage;
 public interface MarksListPublisher {
 
     default void publish (MarkList markList){
-        markList.getMarks()
+        markList.getList()
                 .parallelStream()
                 .forEach( mark -> publishOne(markList.getTitle() , mark))
         ;

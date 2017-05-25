@@ -12,16 +12,15 @@ public class MarkList {
     private String title;
 
     private String ownerUserId;
-    private List<Mark> marks;
+    private List<Mark> list;
 
-    public MarkList(String title, String ownerUserId, List<Mark> marks) {
+    public MarkList(String title, String ownerUserId, List<Mark> list) {
         this.title = title;
         this.ownerUserId = ownerUserId;
-        this.marks = marks;
+        this.list = list;
     }
-
-    public MarkList() {
-        this.marks = new ArrayList<>();
+    public MarkList(){
+        this.list= new ArrayList<>();
     }
 
     public String getTitle() {
@@ -40,12 +39,21 @@ public class MarkList {
         this.ownerUserId = ownerUserId;
     }
 
-    public List<Mark> getMarks() {
-        return marks;
+    public List<Mark> getList() {
+        return list;
     }
 
-    public void setMarks(List<Mark> marks) {
-        this.marks = marks;
+    public void setList(List<Mark> list) {
+        this.list = list;
+    }
+
+    @Override
+    public String toString() {
+        return "MarkList{" +
+                "title='" + title + '\'' +
+                ", ownerUserId='" + ownerUserId + '\'' +
+                ", list=" + list +
+                '}';
     }
 
     @Override
@@ -58,24 +66,14 @@ public class MarkList {
         if (title != null ? !title.equals(markList.title) : markList.title != null) return false;
         if (ownerUserId != null ? !ownerUserId.equals(markList.ownerUserId) : markList.ownerUserId != null)
             return false;
-        return marks != null ? marks.equals(markList.marks) : markList.marks == null;
+        return list != null ? list.equals(markList.list) : markList.list == null;
     }
 
     @Override
     public int hashCode() {
         int result = title != null ? title.hashCode() : 0;
         result = 31 * result + (ownerUserId != null ? ownerUserId.hashCode() : 0);
-        result = 31 * result + (marks != null ? marks.hashCode() : 0);
+        result = 31 * result + (list != null ? list.hashCode() : 0);
         return result;
     }
-
-    @Override
-    public String toString() {
-        return "MarkList{" +
-                "title='" + title + '\'' +
-                ", ownerUserId='" + ownerUserId + '\'' +
-                ", marks=" + marks +
-                '}';
-    }
-
 }
